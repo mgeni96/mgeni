@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tazama Video</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .video-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Karibu kwenye Tovuti ya Video</h1>
+    <div class="video-container">
+        <video controls width="600">
+            <source src="example-video.mp4" type="video/mp4">
+            Kichezaji chako hakina msaada wa kuonyesha video.
+        </video>
+    </div>
+    <div class="ads">
+        <!-- Nafasi ya Tangazo -->
+        <p>Tangazo litakuja hapa...</p>
+    </div>
+    <script>
+        // Mfano wa API Call ya Kupakia Video
+        async function uploadVideo(file) {
+            const formData = new FormData();
+            formData.append('video', file);
+
+            const response = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                alert("Video imepakiwa kwa mafanikio!");
+            } else {
+                alert("Kuna tatizo kwenye kupakia video.");
+            }
+        }
+    </script>
+</body>
+</html>
